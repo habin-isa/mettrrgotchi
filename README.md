@@ -15,7 +15,7 @@ Both can be obtained using Homebrew - follow instructions below:
 
 If everything is set correctly running `php -v` should return `7.2+` and `composer -v` should return `1.6+`.
 
-If you're getting php 5.5 + then you might need to fix your Brew. Best way to do this is to run `brew doctor` and following the instructions there, especially the one with `export PATH` if such issue is identified.
+If you're not getting php 7.2 + then you might need to fix your Brew. Best way to do this is to run `brew doctor` and following the instructions there, especially the one with `export PATH` if such issue is identified.
 
 ###### 2. Set up:
 1. Pull the repo
