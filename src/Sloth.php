@@ -6,7 +6,7 @@ use DateTime;
 
 class Sloth
 {
-    const PICTURE = 'sloth';
+    const PICTURE = ':-)';
 
     /**
      * @var string
