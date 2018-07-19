@@ -46,7 +46,7 @@ class Zombie
 
     private $dateOfTurning;
     private $name;
-    private $hunger = 100;
+    private $hunger = 1;
 
 
     public function __construct($dt = null)
@@ -65,7 +65,6 @@ class Zombie
     {
         $this->name = $name;
     }
-
 
     public function getAge()
     {
@@ -86,12 +85,12 @@ class Zombie
 
     public function poop()
     {
-        if ($this->hunger < 50) {
-            $this->hunger = 9;
-            return self::POO;
-        } else {
-            return '';
-        }
+        return "Zombies don't poop";
+    }
+
+    public function explode()
+    {
+        // Can a class instance self-destruct?
     }
 
     public function deadWalk()
