@@ -52,7 +52,7 @@ class Sloth
     }
 
     /**
-    * Getter for dob
+    * Getter for age
     *
     * @return string
     */
