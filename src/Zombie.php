@@ -46,7 +46,7 @@ class Zombie
 
     private $dateOfTurning;
     private $name;
-    private $hunger = 1;
+    private $hunger = 100;
 
 
     public function __construct($dt = null)
