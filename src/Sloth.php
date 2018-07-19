@@ -14,7 +14,7 @@ class Sloth
     private $name;
 
     /**
-     * @var int
+     * @var DateTime
      */
     private $dob;
 
