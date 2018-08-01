@@ -44,7 +44,7 @@ class ZombieTest extends TestCase
     /** @test */
     public function zombie_has_hunger()
     {
-        $zombie = new Zombie;
+        $zombie = new Zombie();
 
         $failMsg = "Expected hunger to be 100";
         $this->assertSame($zombie->getHunger(), 100, $failMsg);
@@ -52,9 +52,60 @@ class ZombieTest extends TestCase
     }
 
     /** @test */
+    public function zombie_has_belly_capacity()
+    {
+        $zombie = new Zombie();
+
+        $failMsg = "Expected belly capacity to be 100";
+        $this->assertSame($zombie->getCapacity(), 100, $failMsg);
+
+    }
+
+    /** @test */
+    public function zombie_has_fullness()
+    {
+        $zombie = new Zombie();
+
+        $failMsg = "Expected hunger to be 0";
+        $this->assertSame($zombie->getFullness(), 0, $failMsg);
+
+    }
+
+    /** @test */
+    public function zombie_can_eat()
+    {
+        $zombie = new Zombie();
+        $msg = "Current hunger level: ";
+
+        $failMsg = "Expected hunger to be ";
+        $this->assertSame($zombie->getHunger(), 100, $failMsg . '100');
+
+        $returnMsg = $zombie->eat('brains');
+
+        $this->assertSame($zombie->getHunger(), 94, $failMsg . '94');
+        $this->assertSame($returnMsg, $msg . '94', $failMsg . '94');
+
+    }
+
+    /** @test */
+    public function zombie_explodes_when_overeaten()
+    {
+        $zombie = new Zombie();
+        $msg = "Zombie is no more";
+
+        $failMsg = "Expected message to be: ";
+
+        $returnMsg = $zombie->eat(str_repeat('braaaains!', 11));
+
+        $this->assertSame($returnMsg, $msg, $failMsg . $msg);
+    }
+
+
+
+    /** @test */
     public function zombie_can_deadWalk()
     {
-        $zombie = new Zombie;
+        $zombie = new Zombie();
 
         $output = $zombie->deadWalk();
 

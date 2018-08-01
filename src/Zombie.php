@@ -33,6 +33,8 @@ class Zombie
     private $dateOfTurning;
     private $name;
     private $hunger = 100;
+    private $fullness = 0;
+    private $bellyCapacity = 100;
 
 
     public function __construct($dt = null)
@@ -63,9 +65,25 @@ class Zombie
         return $this->hunger;
     }
 
+    public function getCapacity()
+    {
+        return $this->bellyCapacity;
+    }
+
+    public function getFullness()
+    {
+        return $this->fullness;
+    }
+
     public function eat($brains)
     {
         $this->hunger -= strlen($brains);
+        $this->fullness += strlen($brains);
+
+        if ($this->fullness > $this->bellyCapacity) {
+            return $this->explode($this);
+        }
+
         return "Current hunger level: {$this->hunger}";
     }
 
@@ -74,9 +92,11 @@ class Zombie
         return "Zombies don't poop";
     }
 
-    public function explode()
+    public function explode(Zombie $zombie)
     {
         // Can a class instance self-destruct?
+        $zombie = NULL;
+        return "Zombie is no more";
     }
 
     public function deadWalk()
