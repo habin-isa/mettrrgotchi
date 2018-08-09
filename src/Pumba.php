@@ -29,6 +29,7 @@ class Pumba {
   private $dob;
   private $name;
   private $hunger = 10;
+  private $thirst = true;
 
 /**
    * @param DateTime $dt (optional) date of birth
@@ -82,10 +83,28 @@ public function munch($chocolate)
   return "Current hunger level: {$this->hunger}";
 }
 
+/**
+  * @return int thirst
+*/
+
+public function getThirst()
+{
+  return $this->thirst;
+}
+
+public function drink()
+{
+  if ($this->thirst == true) {
+    return "Gulp Gulp Gulp";
+  } else {
+    return "Pumba isn't thirsty atm!";
+  }
+}
+
 public function poop()
 {
-  if ($this->hunger < 6) {
-     ($this->hunger = 10);
+  if ($this->hunger < 5) {
+     $this->hunger = 9;
       return self::POO;
     } else {
       return '';
