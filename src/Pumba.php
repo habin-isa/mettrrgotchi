@@ -28,8 +28,9 @@ class Pumba {
 
   private $dob;
   private $name;
-  private $hunger = 10;
+  private $hunger;
   private $thirst = true;
+  private $food;
 
 /**
    * @param DateTime $dt (optional) date of birth
@@ -38,7 +39,7 @@ class Pumba {
 
 public function __construct($dt = null)
 {
-  $this->dob = $dt ?? new DateTime();
+  $this->dob = $dt ?? new DateTime;
 }
 
 /**
@@ -69,6 +70,14 @@ public function getAge()
 }
 
 /**
+  * @return void set hunger
+*/
+
+public function setHunger($hunger)
+{
+  return $this->hunger = $hunger;
+}
+/**
   * @return int hunger
 */
 
@@ -77,9 +86,9 @@ public function getHunger()
   return $this->hunger;
 }
 
-public function munch($chocolate)
+public function munch($food)
 {
-  $this->hunger -= strlen($chocolate);
+  $this->hunger -= strlen($food);
   return "Current hunger level: {$this->hunger}";
 }
 
@@ -97,18 +106,20 @@ public function drink()
   if ($this->thirst == true) {
     return "Gulp Gulp Gulp";
   } else {
-    return "Pumba isn't thirsty atm!";
+    return "{$this->name} isn't thirsty atm!";
   }
 }
 
-public function poop()
+public function poop($hunger)
 {
-  if ($this->hunger < 5) {
-     $this->hunger = 9;
-      return self::POO;
-    } else {
-      return '';
-    }
+  if($this->hunger <= 0) {
+    return 'Cant poop im not even hungry';
+  } else if($this->hunger <= 5) {
+    return 'Should be more hungry to poop';
+  } else {
+    $hunger -= strlen($hunger);
+    return self::POOP;
+  }
 }
 
 public function playMusic()

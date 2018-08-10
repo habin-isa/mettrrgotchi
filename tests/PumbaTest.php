@@ -53,8 +53,10 @@ class PumbaTest extends TestCase
   {
     $pumba = new Pumba();
 
-    $failMsg = "Pumba's hunger should be level 10";
-    $this->assertSame($pumba->getHunger(), 10, $failMsg);
+    $hunger = 6;
+
+    $failMsg = "Pumba's hunger level should be ";
+    $this->assertSame($pumba->getHunger(), 6, $failMsg . '6');
   }
 
   /** @test */
@@ -64,12 +66,16 @@ class PumbaTest extends TestCase
     $msg = "Current hunger level: ";
 
     $failMsg = "Pumba's hunger should be ";
-    $this->assertSame($pumba->getHunger(), 10, $failMsg . '10');
+//    $this->assertTrue(($pumba->getHunger() == ), $hunger, $failMsg . $hunger);
+
+    $this->assertSame($pumba->getHunger(), $this->hunger, $failMsg . $hunger);
 
     $returnMsg = $pumba->munch('xx');
 
-    $this->assertSame($pumba->getHunger(), 8, $failMsg . '8');
-    $this->assertSame($returnMsg, $msg . '8', $failMsg . '8');
+    $this->assertSame($pumba->getHunger(), 2, $failMsg . '2');
+
+    //$this->assertSame($pumba->getHunger(), 8, $failMsg . '8');
+    //$this->assertSame($returnMsg, $msg . '8', $failMsg . '8');
   }
 
   /** @test */
@@ -90,21 +96,26 @@ class PumbaTest extends TestCase
     $this->assertSame($pumba->drink(), "Gulp Gulp Gulp", $failMsg);
   }
 
+  //  $pumba = new Pumba();
+  //  $above6 = $pumba->poop();
+  // $pumba->munch('xxx');
+  // $below6 = $pumba->poop();
+
   /** @test */
-  public function pumba_can_poop()
-  {
-    $pumba = new Pumba();
+public function pumba_can_poop()
+{
+  $pumba = new Pumba();
 
-    $above6 = $pumba->poop();
+  $above5 = $pumba->poop(8);
 
-    $pumba->munch('xxx');
+  $pumba->munch('xxx');
 
-    $below6 = $pumba->poop();
+  $below5 = $pumba->poop($hunger);
 
-    $this->assertTrue(strlen($above6) == 0, "Can't poop im not even hungry");
-//    $this->assertTrue(strlen($below6) >= 1, "Should poop coz im hungry");
-//    $this->assertTrue($pumba->getHunger() >= 9, "Should be hungry after pooping");
-  }
+  $this->assertTrue(strlen($above5) == 0, $this::POOP);
+  $this->assertTrue(strlen($below5) >= 1, "Should be more hungry to poop");
+  $this->assertTrue($pumba->poop(0), "Cant poop im not even hungry");
+}
 
   /** @test */
   public function pumba_play_music()
