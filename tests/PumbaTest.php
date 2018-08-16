@@ -8,10 +8,10 @@ use PHPUnit\Framework\TestCase;
 class PumbaTest extends TestCase
 {
   /** @test */
-  public function class_name_is_pumba()
-  {
-    $failMsg = "Class name should be 'Src\Pumba'";
-    $this->assertSame(Pumba::class, 'Src\Pumba', $failMsg);
+    public function class_name_is_pumba()
+    {
+      $failMsg = "Class name should be 'Src\Pumba'";
+      $this->assertSame(Pumba::class, 'Src\Pumba', $failMsg);
   }
 
   /** @test */
