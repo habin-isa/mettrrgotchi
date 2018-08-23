@@ -6,7 +6,7 @@ use DateTime;
 
 abstract class Incredibles {
 
-    private const POO = "
+    protected const POO = "
     (   )
  (   ) (
   ) _   )
@@ -15,23 +15,12 @@ abstract class Incredibles {
 (____\___))
 ";
 
-    public const PICTURE = "
-\"\"(\_          _/)
-\"\")  (        )  (
-\"\"(    (      )    )
-\"\")_(\ \.--./ /)_(
-\"\"\"`)` 6  6 '('
-\"\"\"/        \
-\"\"\"(  )    (  )
-\"\"\" `(_c__c_)`
-\"\"\"\"\"`--`\r\n";
-
-    private $dob;
-    private $name;
-    private $hunger;
-    private $thirst = true;
-    private $food;
-
+    protected $dob;
+    protected $name;
+    protected $hunger;
+    protected $thirst = true;
+    protected $food;
+ 
 
     /**
        * @param DateTime $dt (optional) date of birth
