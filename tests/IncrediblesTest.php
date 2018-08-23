@@ -125,3 +125,4 @@ public function incredibles_can_poop()
 
     $this->assertTrue(strlen($output) > 0, "Play some music");
   }
+}

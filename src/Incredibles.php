@@ -17,9 +17,9 @@ abstract class Incredibles {
 
     protected $dob;
     protected $name;
-    protected $hunger;
     protected $thirst = true;
     protected $food;
+    protected $hunger;
  
 
     /**
@@ -63,13 +63,13 @@ abstract class Incredibles {
       * @return void set hunger
     */
 
-    public function setHunger($hunger)
-    {
-        return $this->hunger = $hunger;
-    }
-    /**
-      * @return int hunger
-    */
+    // public function setHunger($hunger)
+    // {
+    //     return $this->hunger = $hunger;
+    // }
+    // /**
+    //   * @return int hunger
+    // */
 
     public function getHunger()
     {

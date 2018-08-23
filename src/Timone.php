@@ -16,17 +16,26 @@ class Timone extends Incredibles {
     \"\"\"(  )    (  )
     \"\"\" `(_c__c_)`
     \"\"\"\"\"`--`\r\n";
-       
+
+    protected $hunger = 5;
 
     public function poop($hunger)
     {
         if ($this->hunger <= 0) {
             return 'Cant poop im not even hungry';
-        } elsif($this->hunger <= 5) {
+        } else if ($this->hunger <= 5) {
           return 'Should be more hungry to poop';
         } else {
             $hunger -= strlen($hunger);
             return self::POOP;
         }
     }
+    public function setHunger($hunger)
+    {
+        return $this->hunger = $hunger;
+    }
+    /**
+      * @return int hunger
+    */
+
 }

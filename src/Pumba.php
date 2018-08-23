@@ -6,7 +6,7 @@ use DateTime;
 
 class Pumba extends Incredibles {
 
-  protected const PICTURE = "
+protected const PICTURE = "
 \"\" ___        ___
 \"\"(    (      )    )
 \"\")_(\ \.--./ /)_(
@@ -14,12 +14,13 @@ class Pumba extends Incredibles {
 \"\"\"(  )    (  )
 \"\"\" `(_0__0_)`
 \"\"\"\"\"`[]`\r\n";
+
     public function poop($hunger)
     {
         if ($this->hunger <= 0) {
             return 'Cant poop im not even hungry';
-        } elsif($this->hunger <= 10) {
-          return 'Should be more hungry to poop';
+        } else if ($this->hunger <= 10) {
+            return 'Should be more hungry to poop';
         } else {
             $hunger -= strlen($hunger);
             return self::POOP;
